@@ -1,0 +1,20 @@
+# Executable
+Demineur
+
+# Object files
+*.o
+
+# Generated Meta Object Compiler (moc) files
+moc_*.cpp
+moc_predefs.h
+
+# Build configuration and generated files
+Makefile
+.qmake.stash
+
+# Qt Creator user specific files
+*.pro.user
+*.pro.user.*
+
+# Mac OS DS_Store files (au cas où)
+.DS_Store
