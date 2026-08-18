@@ -3,6 +3,8 @@ QT += widgets core gui
 TARGET = Demineur
 TEMPLATE = app
 
+CONFIG += c++17
+
 SOURCES += \
     main.cpp \
     Menu.cpp \

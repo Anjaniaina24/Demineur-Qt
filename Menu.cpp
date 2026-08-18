@@ -6,16 +6,13 @@
 
 Menu::Menu(QWidget *parent) : QMainWindow(parent)
 {
-    // --- Widget central ---
     QWidget *central = new QWidget(this);
     setCentralWidget(central);
 
-    // --- StackedWidget pour changer de vue ---
     stackedWidget = new QStackedWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout(central);
     mainLayout->addWidget(stackedWidget);
 
-    // --- Page Menu ---
     menuPage = new QWidget(this);
     menuPage->setStyleSheet("background: #c0c0c0;");
 
@@ -66,16 +63,12 @@ Menu::Menu(QWidget *parent) : QMainWindow(parent)
     menuLayout->addWidget(quitterButton, 0, Qt::AlignCenter);
     menuLayout->addStretch();
 
-    // --- Page Jeu ---
-    gamePage = new Demineur(this);
-    // Connecter le signal de retour du jeu pour revenir au menu
+    gamePage = new Demineur();
     connect(gamePage, &Demineur::backToMenu, this, &Menu::goToMenu);
 
-    // Ajouter les pages au stacked widget
-    stackedWidget->addWidget(menuPage);   // index 0
-    stackedWidget->addWidget(gamePage);   // index 1
+    stackedWidget->addWidget(menuPage);
+    stackedWidget->addWidget(gamePage);
 
-    // Connexion des boutons du menu
     connect(jouerButton, &QPushButton::clicked, this, &Menu::goToGame);
     connect(quitterButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
 
@@ -87,10 +80,10 @@ Menu::~Menu() {}
 
 void Menu::goToGame()
 {
-    stackedWidget->setCurrentIndex(1); // afficher la page jeu
+    stackedWidget->setCurrentIndex(1);
 }
 
 void Menu::goToMenu()
 {
-    stackedWidget->setCurrentIndex(0); // afficher la page menu
+    stackedWidget->setCurrentIndex(0);
 }

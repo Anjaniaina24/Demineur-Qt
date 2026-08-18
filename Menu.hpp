@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 
-class Demineur; // forward declaration
+class Demineur;
 
 class Menu : public QMainWindow
 {
@@ -16,8 +16,8 @@ public:
     ~Menu();
 
 private slots:
-    void goToGame();   // bascule vers la vue jeu
-    void goToMenu();   // bascule vers la vue menu
+    void goToGame();
+    void goToMenu();
 
 private:
     QStackedWidget *stackedWidget;
